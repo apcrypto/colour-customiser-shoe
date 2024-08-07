@@ -1,5 +1,10 @@
 const swatchItems = document.querySelector('.swatch-items');
 let loaded = false;
+let theModel;
+let activeOption = 'laces';
+const cameraFar = 5;
+const modelPath = './assets/shoe.glb';
+const backgroundColor = 0xf1f1f1;
 
 const colors = [
   {
@@ -31,12 +36,6 @@ const colors = [
   { color: '3b45a3' },
   { color: 'fee2e0' },
 ];
-
-let theModel;
-let activeOption = 'laces';
-const cameraFar = 5;
-const modelPath = './assets/shoe.glb';
-const backgroundColor = 0xf1f1f1;
 
 // Initialise the scene
 const scene = new THREE.Scene();
