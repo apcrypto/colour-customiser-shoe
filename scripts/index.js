@@ -1,4 +1,4 @@
-const swatchesSlider = document.getElementById('swatch-item');
+const swatchItems = document.querySelector('.swatch-items');
 let loaded = false;
 
 const colors = [
@@ -180,7 +180,7 @@ function buildColors(colors) {
       ? `url(${color.texture})`
       : `#${color.color}`;
     swatch.dataset.key = i;
-    swatchesSlider.append(swatch);
+    swatchItems.append(swatch);
   });
 }
 buildColors(colors);
@@ -212,6 +212,7 @@ function selectSwatch(e) {
 
 function createTextureMaterial(color) {
   const texture = new THREE.TextureLoader().load(color.texture);
+  console.log(color.size);
   texture.repeat.set(...color.size);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
