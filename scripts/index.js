@@ -58,27 +58,6 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.set(0, 0, cameraFar);
 
-// Initialise the object loader
-const loader = new THREE.GLTFLoader();
-loader.load(
-  modelPath,
-  (gltf) => {
-    theModel = gltf.scene;
-    theModel.traverse((o) => {
-      if (o.isMesh) o.receiveShadow = true;
-    });
-    theModel.scale.set(1, 1, 1);
-    theModel.rotation.set(0.09, 12, 0);
-    theModel.position.y = -1;
-    initialMap.forEach((object) =>
-      initColor(theModel, object.childID, object.mtl)
-    );
-    scene.add(theModel);
-  },
-  undefined,
-  (error) => console.error(error)
-);
-
 // Initial material
 const initialMaterial = new THREE.MeshPhongMaterial({
   color: 0xf1f1f1,
@@ -105,6 +84,27 @@ function initColor(parent, type, mtl) {
     }
   });
 }
+
+// Initialise the object loader
+const loader = new THREE.GLTFLoader();
+loader.load(
+  modelPath,
+  (gltf) => {
+    theModel = gltf.scene;
+    theModel.traverse((o) => {
+      if (o.isMesh) o.receiveShadow = true;
+    });
+    theModel.scale.set(1, 1, 1);
+    theModel.rotation.set(0.09, 12, 0);
+    theModel.position.y = -1;
+    initialMap.forEach((object) =>
+      initColor(theModel, object.childID, object.mtl)
+    );
+    scene.add(theModel);
+  },
+  undefined,
+  (error) => console.error(error)
+);
 
 // Add lights to the scene
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.61);
