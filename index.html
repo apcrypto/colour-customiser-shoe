@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ThreeJS Product Customiser</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <!-- Options for customisation -->
+    <nav class="options">
+      <div class="option --is-active" data-option="laces">
+        <img src="./assets/laces.png" alt="Laces" />
+      </div>
+      <div class="option" data-option="trim">
+        <img src="./assets/trim.png" alt="Trim" />
+      </div>
+      <div class="option" data-option="side">
+        <img src="./assets/side.png" alt="Side" />
+      </div>
+      <div class="option" data-option="Vamp">
+        <img src="./assets/vamp.png" alt="Vamp" />
+      </div>
+      <div class="option" data-option="stitch">
+        <img src="./assets/stitch.png" alt="Stitch" />
+      </div>
+      <div class="option" data-option="rear_sole">
+        <img src="./assets/rear_sole.png" alt="Rear Sole" />
+      </div>
+    </nav>
+
+    <!-- Canvas element to draw the scene onto -->
+    <main>
+      <canvas id="canvas"></canvas>
+      <!-- Controls and information -->
+      <section class="controls">
+        <div class="info">
+          <div class="info-message">
+            <p>
+              <strong>Select</strong> shoe item to colour from
+              left.<br />
+              <strong>Choose</strong> swatches below to select
+              material or colour. <br /><strong>Grab</strong> to view
+              shoe in 360 degrees.
+            </p>
+          </div>
+        </div>
+        <!-- Colour swatches -->
+        <div id="swatch-wrapper" class="swatch-wrapper">
+          <div id="swatch-item" class="swatch-item"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ThreeJS library files and index.js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/loaders/GLTFLoader.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"
+      defer
+    ></script>
+    <script src="./scripts/index.js" defer></script>
+  </body>
+</html>
