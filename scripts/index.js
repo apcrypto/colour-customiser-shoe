@@ -212,7 +212,6 @@ function selectSwatch(e) {
 
 function createTextureMaterial(color) {
   const texture = new THREE.TextureLoader().load(color.texture);
-
   texture.repeat.set(...color.size);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
