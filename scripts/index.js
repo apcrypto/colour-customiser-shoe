@@ -149,6 +149,7 @@ function animate() {
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
+
   if (resizeRendererToDisplaySize(renderer)) {
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
     camera.updateProjectionMatrix();
@@ -164,7 +165,9 @@ function resizeRendererToDisplaySize(renderer) {
   const height = window.innerHeight;
   const needResize =
     canvas.width !== width || canvas.height !== height;
+
   if (needResize) renderer.setSize(width, height, false);
+
   return needResize;
 }
 
@@ -203,14 +206,17 @@ function selectSwatch(e) {
   const newMaterial = color.texture
     ? createTextureMaterial(color)
     : createColorMaterial(color);
+
   setMaterial(theModel, activeOption, newMaterial);
 }
 
 function createTextureMaterial(color) {
   const texture = new THREE.TextureLoader().load(color.texture);
+
   texture.repeat.set(...color.size);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
+
   return new THREE.MeshPhongMaterial({
     map: texture,
     shininess: color.shininess || 10,
